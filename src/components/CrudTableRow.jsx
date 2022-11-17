@@ -8,8 +8,8 @@ const CrudTableRow = ({ el }) => {
         <td>{el.patronus}</td>
         <td>{el.house}</td>
         <td>
-          <button>Edit</button>
-          <button>Delete</button>
+            <button>Edit</button>
+            <button>Delete</button>
         </td>
       </tr>
     </div>

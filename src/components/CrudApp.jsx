@@ -5,6 +5,7 @@ import CrudTable from "./CrudTable";
 const initialDb = [
   {
     name: "Harry Potter",
+    id: 1,
     alternate_names: [],
     species: "human",
     gender: "male",
@@ -30,6 +31,7 @@ const initialDb = [
   },
   {
     name: "Hermione Granger",
+    id:2,
     alternate_names: [],
     species: "human",
     gender: "female",
@@ -55,6 +57,7 @@ const initialDb = [
   },
   {
     name: "Ron Weasley",
+    id:3,
     alternate_names: ["Dragomir Despard"],
     species: "human",
     gender: "male",
@@ -80,6 +83,7 @@ const initialDb = [
   },
   {
     name: "Draco Malfoy",
+    id:4,
     alternate_names: [],
     species: "human",
     gender: "male",
@@ -105,6 +109,7 @@ const initialDb = [
   },
   {
     name: "Minerva McGonagall",
+    id:5,
     alternate_names: [],
     species: "human",
     gender: "female",
@@ -132,11 +137,32 @@ const initialDb = [
 
 const CrudApp = () => {
   const [db, setDb] = useState(initialDb);
+  const [dataToEdit, setDataToEdit] = useState(null)
+
+  const createData =(data)=>{
+    data.id=Date.now()
+    //console.log(data)
+    setDb([...db, data])
+  }
+
+  const updateData =(data)=>{}
+
+  const deleteData =(id)=>{}
+
   return (
     <div>
       <h2>CRUD App</h2>
-      <CrudForm />
-      <CrudTable data={db} />
+      <CrudForm
+      createData={createData}
+      updateData={updateData}
+      dataToEdit={dataToEdit}
+      setDataToEdit={setDataToEdit}
+      />
+      <CrudTable
+      data={db}
+      setDataToEdit={setDataToEdit}
+      deleteData={deleteData}
+      />
     </div>
   );
 };
