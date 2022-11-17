@@ -1,15 +1,16 @@
 import React from "react";
 
-const CrudTableRow = ({ el }) => {
+const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
+  let {name, patronus, house, id} = el 
   return (
     <div>
       <tr>
-        <td>{el.name}</td>
-        <td>{el.patronus}</td>
-        <td>{el.house}</td>
+        <td>{name}</td>
+        <td>{patronus}</td>
+        <td>{house}</td>
         <td>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={()=>setDataToEdit(el)}>Edit</button>
+            <button onClick={()=> deleteData(id)}>Delete</button>
         </td>
       </tr>
     </div>

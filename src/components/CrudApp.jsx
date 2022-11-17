@@ -31,7 +31,7 @@ const initialDb = [
   },
   {
     name: "Hermione Granger",
-    id:2,
+    id: 2,
     alternate_names: [],
     species: "human",
     gender: "female",
@@ -57,7 +57,7 @@ const initialDb = [
   },
   {
     name: "Ron Weasley",
-    id:3,
+    id: 3,
     alternate_names: ["Dragomir Despard"],
     species: "human",
     gender: "male",
@@ -83,7 +83,7 @@ const initialDb = [
   },
   {
     name: "Draco Malfoy",
-    id:4,
+    id: 4,
     alternate_names: [],
     species: "human",
     gender: "male",
@@ -109,7 +109,7 @@ const initialDb = [
   },
   {
     name: "Minerva McGonagall",
-    id:5,
+    id: 5,
     alternate_names: [],
     species: "human",
     gender: "female",
@@ -137,31 +137,35 @@ const initialDb = [
 
 const CrudApp = () => {
   const [db, setDb] = useState(initialDb);
-  const [dataToEdit, setDataToEdit] = useState(null)
+  const [dataToEdit, setDataToEdit] = useState(null);
 
-  const createData =(data)=>{
-    data.id=Date.now()
+  const createData = (data) => {
+    data.id = Date.now();
     //console.log(data)
-    setDb([...db, data])
-  }
+    setDb([...db, data]);
+  };
 
-  const updateData =(data)=>{}
+  const updateData = (data) => {
+    let newData = db.map((el) => (el.id === data.id ? data : el));
 
-  const deleteData =(id)=>{}
+    setDb(newData);
+  };
+
+  const deleteData = (id) => {};
 
   return (
     <div>
       <h2>CRUD App</h2>
       <CrudForm
-      createData={createData}
-      updateData={updateData}
-      dataToEdit={dataToEdit}
-      setDataToEdit={setDataToEdit}
+        createData={createData}
+        updateData={updateData}
+        dataToEdit={dataToEdit}
+        setDataToEdit={setDataToEdit}
       />
       <CrudTable
-      data={db}
-      setDataToEdit={setDataToEdit}
-      deleteData={deleteData}
+        data={db}
+        setDataToEdit={setDataToEdit}
+        deleteData={deleteData}
       />
     </div>
   );

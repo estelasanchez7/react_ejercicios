@@ -10,6 +10,15 @@ const initialForm = {
 const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit}) => {
   const [form, setForm] = useState(initialForm);
 
+  useEffect(() => {
+    if(dataToEdit){
+      setForm(dataToEdit) //funcion actualizadora
+    }else{
+      setForm(initialForm)
+    }
+  }, [dataToEdit])
+  
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -38,7 +47,7 @@ const CrudForm = ({createData, updateData, dataToEdit, setDataToEdit}) => {
 
   return (
     <div>
-      <h3>Agregar</h3>
+      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
