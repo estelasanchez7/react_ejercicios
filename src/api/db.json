@@ -1,0 +1,34 @@
+{
+  "harry_potter": [
+    {
+      "name": "Harry Potter",
+      "id": 1,
+      "house": "Gryffindor",
+      "patronus": "stag"
+    },
+    {
+      "name": "Hermione Granger",
+      "id": 2,
+      "house": "Gryffindor",
+      "patronus": "otter"
+    },
+    {
+      "name": "Ron Weasley",
+      "id": 3,
+      "house": "Gryffindor",
+      "patronus": "Jack Russell terrier"
+    },
+    {
+      "name": "Draco Malfoy",
+      "id": 4,
+      "house": "Slytherin",
+      "patronus": ""
+    },
+    {
+      "name": "Minerva McGonagall",
+      "id": 5,
+      "house": "Gryffindor",
+      "patronus": "tabby cat"
+    }
+  ]
+}

@@ -2,41 +2,8 @@ import React, { useState } from "react";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 
-const initialDb = [
-  {
-    name: "Harry Potter",
-    id: 1,
-    house: "Gryffindor",
-    patronus: "stag",
-  },
-  {
-    name: "Hermione Granger",
-    id: 2,
-    house: "Gryffindor",
-    patronus: "otter",
-  },
-  {
-    name: "Ron Weasley",
-    id: 3,
-    house: "Gryffindor",
-    patronus: "Jack Russell terrier",
-  },
-  {
-    name: "Draco Malfoy",
-    id: 4,
-    house: "Slytherin",
-    patronus: "",
-  },
-  {
-    name: "Minerva McGonagall",
-    id: 5,
-    house: "Gryffindor",
-    patronus: "tabby cat",
-  },
-];
-
-const CrudApp = () => {
-  const [db, setDb] = useState(initialDb);
+const CrudApi = () => {
+  const [db, setDb] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
 
   const createData = (data) => {
@@ -66,7 +33,7 @@ const CrudApp = () => {
 
   return (
     <div>
-      <h2>CRUD App</h2>
+      <h2>CRUD App-API</h2>
       <article className="grid-1-2">
         <CrudForm
           createData={createData}
@@ -84,4 +51,4 @@ const CrudApp = () => {
   );
 };
 
-export default CrudApp;
+export default CrudApi;
