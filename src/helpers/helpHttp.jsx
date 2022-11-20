@@ -1,4 +1,4 @@
-export const helHttp=()=>{
+export const helpHttp=()=>{
     const customFetch = (endpoint, options) => {
         const defaultHeader = {
             accept:'application/json'
