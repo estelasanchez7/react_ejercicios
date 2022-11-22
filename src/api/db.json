@@ -29,6 +29,27 @@
       "id": 5,
       "house": "Gryffindor",
       "patronus": "tabby cat"
+    },
+    {
+      "id": 6,
+      "name": "Dorotea",
+      "patronus": "perro",
+      "house": "Ravenclaw"
+    },
+    {
+      "id": 8
+    },
+    {
+      "name": "Estela",
+      "house": "Gryffindor",
+      "patronus": "gato",
+      "id": 1669023650043
+    },
+    {
+      "name": "Manueel",
+      "house": "Gryffindor",
+      "patronus": "Ciervo",
+      "id": 1669024644495
     }
   ]
 }
