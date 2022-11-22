@@ -1,14 +1,26 @@
-import SongArtist from "./SongArtist"
-import SongLyric from "./SongLyric"
+import SongArtist from "./SongArtist";
+import SongLyric from "./SongLyric";
+import Message from "./Message";
 
-const SongDetails = ({search, lyric, bio}) => {
+const SongDetails = ({ search, lyric, bio }) => {
+  if (!lyric || !bio) return null;
+
   return (
-    <div>
-        <h2>Detalles</h2>
-        <SongArtist/>
-        <SongLyric/>
-    </div>
-  )
-}
+    <>
+      {lyric.error || lyric.err || lyric.name === "AbortError" ? (
+        <Message
+          msg={`Error: no existe la canción '${search.song}'`}
+          bgColor="#dc3545"
+        />
+      ) : (
+        <SongLyric />
+      )}
+      {bio.artist ? (<SongArtist />) : ( <Message
+      msg={`Error: no existe el intérprete '${search.artist}'`}
+      bgColor="#dc3545"
+      />)}
+    </>
+  );
+};
 
-export default SongDetails
+export default SongDetails;

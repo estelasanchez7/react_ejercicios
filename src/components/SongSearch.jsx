@@ -57,8 +57,12 @@ const SongSearch = () => {
       <h2>Song Search</h2>
       {loading && <Loader />}
       {/* solamente si loading es verdadero se va a mostrar */}
-      <SongForm handleSearch={handleSearch} />
-      <SongDetails search={search} lyric={lyric} bio={bio} />
+      
+      <SongForm handleSearch={handleSearch}/>
+      {search && !loading && (
+        <SongDetails search={search} lyric={lyric} bio={bio} />
+      )}
+      
     </div>
   );
 };
