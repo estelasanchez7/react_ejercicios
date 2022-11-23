@@ -13,12 +13,16 @@ const SongDetails = ({ search, lyric, bio }) => {
           bgColor="#dc3545"
         />
       ) : (
-        <SongLyric />
+        <SongLyric title={search.song} lyrics={lyric.lyrics} />
       )}
-      {bio.artist ? (<SongArtist />) : ( <Message
-      msg={`Error: no existe el intérprete '${search.artist}'`}
-      bgColor="#dc3545"
-      />)}
+      {bio.artist ? (
+        <SongArtist artist={bio.artists[0]} />
+      ) : (
+        <Message
+          msg={`Error: no existe el intérprete '${search.artist}'`}
+          bgColor="#dc3545"
+        />
+      )}
     </>
   );
 };
