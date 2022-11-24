@@ -5,6 +5,9 @@ const SelectsAnidados = () => {
   const [state, setState] = useState("");
   const [town, setTown] = useState("");
   const [suburb, setSuburb] = useState("");
+
+  const TOKEN = "d81a7ac7-976d-4e1e-b7d3-b1979d791b6c";
+  
   return (
     <div>
       <h2>Selects Anidados</h2>
