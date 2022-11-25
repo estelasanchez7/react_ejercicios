@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 /*no es necesario mandar a llamar a react porque como es un hook personalizado solo está devolviendo lógica*/
 
 export const useFetch = (url) => {
