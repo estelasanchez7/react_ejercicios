@@ -1,8 +1,26 @@
 import { useForm } from "../hooks/useForm";
 
-const initialForm = {};
+const initialForm = {
+  name: "",
+  email: "",
+  subject: "",
+  comments: "",
+};
 
-const validationsForm = (form) => {};
+const validationsForm = (form) => {
+  let errors = {};
+
+  if (!form.name.trim()) {
+    errors.name = "El campo 'Nombre' es requerido";
+  }
+
+  return errors
+};
+
+let styles = {
+  fontWeight:'bold',
+  color:'#dc3545',
+}
 
 const ContactForm = () => {
   const {
@@ -27,6 +45,7 @@ const ContactForm = () => {
           value={form.name}
           required
         />
+        {errors.name && <p style={styles}>{errors.name}</p>}
         <input
           type="email"
           name="email"
@@ -36,8 +55,9 @@ const ContactForm = () => {
           value={form.email}
           required
         />
+        {errors.email && <p style={styles}>{errors.email}</p>}
         <input
-          type="email"
+          type="text"
           name="subject"
           placeholder="Asunto a tratar"
           onBlur={handleBlur}
@@ -45,6 +65,7 @@ const ContactForm = () => {
           value={form.subject}
           required
         />
+        {errors.subject && <p style={styles}>{errors.subject}</p>}
         <textarea
           name="comments"
           cols="50"
@@ -55,7 +76,8 @@ const ContactForm = () => {
           value={form.comments}
           required
         ></textarea>
-        <input type="submit" value='Enviar' />
+        {errors.comments && <p style={styles}>{errors.comments}</p>}
+        <input type="submit" value="Enviar" />
       </form>
     </div>
   );

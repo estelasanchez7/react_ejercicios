@@ -27,7 +27,7 @@ html {
   
   textarea {
     font-family: inherit;
-    resize: none;
+    resize: none; /*esto hace que se quiten las esquinas inferiores que permiten el manejo del tamaño de la caja al usuario*/
   }
   
   button,
