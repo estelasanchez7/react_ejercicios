@@ -1,4 +1,6 @@
 import { useForm } from "../hooks/useForm";
+import Loader from "./Loader";
+import Message from "./Message";
 
 const initialForm = {
   name: "",
@@ -15,14 +17,14 @@ const validationsForm = (form) => {
 
   if (!form.name.trim()) {
     errors.name = "El campo 'Nombre' es requerido";
-  }else if(!regexName.test(form.name.trim())){
-    errors.name="El campo 'Nombre' solo acepta letras y espacios en blanco"
+  } else if (!regexName.test(form.name.trim())) {
+    errors.name = "El campo 'Nombre' solo acepta letras y espacios en blanco";
   }
 
   if (!form.email.trim()) {
     errors.email = "El campo 'Email' es requerido";
-  }else if(!regexEmail.test(form.email.trim())){
-    errors.email="El campo 'Email' es incorrecto"
+  } else if (!regexEmail.test(form.email.trim())) {
+    errors.email = "El campo 'Email' es incorrecto";
   }
 
   if (!form.subject.trim()) {
@@ -31,17 +33,17 @@ const validationsForm = (form) => {
 
   if (!form.comments.trim()) {
     errors.comments = "El campo 'Comentarios' es requerido";
-  }else if(!regexComments.test(form.comments.trim())){
-    errors.comments("El campo 'Comentarios' solo acepta hasta 255 caracteres.")
+  } else if (!regexComments.test(form.comments.trim())) {
+    errors.comments("El campo 'Comentarios' solo acepta hasta 255 caracteres.");
   }
 
-  return errors
+  return errors;
 };
 
 let styles = {
-  fontWeight:'bold',
-  color:'#dc3545',
-}
+  fontWeight: "bold",
+  color: "#dc3545",
+};
 
 const ContactForm = () => {
   const {
@@ -100,6 +102,10 @@ const ContactForm = () => {
         {errors.comments && <p style={styles}>{errors.comments}</p>}
         <input type="submit" value="Enviar" />
       </form>
+      {loading && <Loader />}
+      {response && (
+        <Message msg="Los datos han sido enviados" bgColor="#198754" />
+      )}
     </div>
   );
 };
