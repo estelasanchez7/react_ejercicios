@@ -1,0 +1,1 @@
+/*Abstraemos la lógica*/
